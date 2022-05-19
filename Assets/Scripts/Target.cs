@@ -18,13 +18,14 @@ public class Target : MonoBehaviour
     void Start()
     {
         targetRb = GetComponent<Rigidbody>();
-        targetRb.AddForce(Vector3.up * Random.Range(12, 16), ForceMode.Impulse);
-        targetRb.AddTorque(Random.Range(-10, 10), Random.Range(-10, 10), Random.Range(-10, 10), ForceMode.Impulse);
-        transform.position = new Vector3(Random.Range(-4, 4), -6);
+        
         targetRb.AddForce(RandomForce(), ForceMode.Impulse);
         targetRb.AddTorque(RandomTorque(), RandomTorque(), RandomTorque(), ForceMode.Impulse);
+
         transform.position = RandomSpawnPos();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        targetRb.AddForce(Vector3.up * Random.Range(12, 16), ForceMode.Impulse);
+        
     }
 
     private void OnMouseDown()
