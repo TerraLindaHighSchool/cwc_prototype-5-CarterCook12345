@@ -13,7 +13,7 @@ public class Target : MonoBehaviour
 
     public int pointValue;
     public ParticleSystem explosionParticle;
-    
+
     private Rigidbody targetRb;
     private GameManager gameManager;
 
@@ -21,13 +21,19 @@ public class Target : MonoBehaviour
     void Start()
     {
         targetRb = GetComponent<Rigidbody>();
-        
+
         targetRb.AddForce(RandomForce(), ForceMode.Impulse);
         targetRb.AddTorque(RandomTorque(), RandomTorque(), RandomTorque(), ForceMode.Impulse);
 
         transform.position = RandomSpawnPos();
+
+        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
         
-        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     private void OnMouseDown()
@@ -51,22 +57,16 @@ public class Target : MonoBehaviour
 
     Vector3 RandomForce()
     {
-        return Vector3.up * Random.Range(minSpeed, maxSpeed);
+        return Vector3.up* Random.Range(minSpeed, maxSpeed);
     }
 
     float RandomTorque()
     {
-        return Random.Range(-maxTorque, maxTorque);
+        return Random.Range(minTorque, maxTorque);
     }
 
     Vector3 RandomSpawnPos()
     {
         return new Vector3(Random.Range(-xRange, xRange), ySpawnPos);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

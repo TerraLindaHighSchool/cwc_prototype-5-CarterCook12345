@@ -120,9 +120,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 3010748087304680242}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9417ecc6956b7f44781fb74465769cec, type: 3}
+  m_Script: {fileID: 11500000, guid: 237cec2dd88ef5441b18829355853d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointValue: 1
+  pointValue: 5
   explosionParticle: {fileID: 4758139293545943008, guid: c7ad2532a6eeb40b59033c75e71fa054,
     type: 3}
